@@ -37,8 +37,8 @@ namespace gatorlight {
     export function light(pin: AnalogPin, type: gatorlightType): number{
       let ADCVal = pins.analogReadPin(pin)
       switch(type){
-        case gatorlightType.Lux: return getLux(ADCVal)
-        case gatorlightType.adcVal: return ADCVal
+        case gatorlightType.Lux: return 1
+        case gatorlightType.adcVal: return 2
         default: return -11111111
       }
     }
