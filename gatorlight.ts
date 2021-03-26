@@ -33,7 +33,7 @@ namespace gatorlight {
     /**
     * Reads the number
     */
-    //% weight=30 blockId="gatorlight_light" block="Get light on pin %pin | in %gatorlightType"
+    //% weight=30 blockId="gatorlight_light" block="Get light on pins %pin | in %gatorlightType"
     export function light(pin: AnalogPin, type: gatorlightType): number{
       let ADCVal = pins.analogReadPin(pin)
       switch(type){
