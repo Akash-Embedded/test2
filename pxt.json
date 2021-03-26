@@ -1,0 +1,18 @@
+{
+    "name": "gatorlight",
+    "version": "0.0.7",
+    "description": "SparkFun gator:light Temperature Sensor",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "gatorlight.ts",
+        "gatorlight.cpp",
+        "shims.d.ts",
+        "enums.d.ts"
+    ],
+    "testFiles": [],
+    "public": true
+}
