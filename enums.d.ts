@@ -1,5 +1,5 @@
 // Auto-generated. Do not edit.
-declare namespace gatorlight {
+declare namespace gatorlights {
 }
 
 // Auto-generated. Do not edit. Really.

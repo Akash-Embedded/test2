@@ -26,7 +26,7 @@
 
 
 //% color=#f44242 icon="\uf185"
-namespace gatorlight {
+namespace gatorlights {
 
     // Functions for reading light from the gatorlight in lux or straight adv value
 

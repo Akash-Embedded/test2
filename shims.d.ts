@@ -16,7 +16,7 @@
      * Distributed as-is; no warranty is given.
      */
 
-declare namespace gatorlight {
+declare namespace gatorlights {
 }
 
 // Auto-generated. Do not edit. Really.
