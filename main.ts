@@ -30,7 +30,7 @@ namespace GSM {
     //% block="send message %msg| to %number"  
     //% weight=90
     //% blockGap=7
-    //% group="SMS1"
+    //% group="SMS3"
     export function sendSms(msg: string, number: string): number{
       sendSms(msg,number)
       return 2
