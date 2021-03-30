@@ -22,10 +22,10 @@ namespace GSM {
 
     // Functions for reading light from the gatorlight in lux or straight adv value
 
-    /**
-    * Reads the number
-    */
     // -------------- 1. SMS ----------------
+    /**
+    * Send Text message
+    */
     //%blockId=gsm_send_sms
     //% block="send message %msg| to %number"  
     //% weight=90	
@@ -34,5 +34,22 @@ namespace GSM {
     export function sendSms(msg: string, number: string): number{
       sendSms(msg,number)
       return 1
-      }
+    }
+
+    // -------------- 2. Settings ----------------
+    /**
+     * Connect DFPlayer Mini
+     * @param pinRX RX Pin, eg: SerialPin.P0
+     * @param pinTX TX Pin, eg: SerialPin.P1
+     */
+    //% blockId=gsm_set_port
+    //% block="connect to DFPlayer mini, RX:%pinRX|TX:%pinTX"   
+    //% weight=80	
+    //% blockGap=7
+    //% group="SETTINGS"
+    export function connect(pinRX: SerialPin = SerialPin.P0, pinTX: SerialPin = SerialPin.P1): void {
+        //serial.redirect(pinRX, pinTX, BaudRate.BaudRate9600)
+        //isConnected = true
+        //basic.pause(100)
+    }
 }
