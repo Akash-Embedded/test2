@@ -23,18 +23,6 @@ namespace GSM {
     // Functions for reading light from the gatorlight in lux or straight adv value
 
     // -------------- 1. SMS ----------------
-    /**
-    * Send Text message
-    */
-    //%blockId=gsm_send_sms
-    //% block="send message %msg| to %number"  
-    //% weight=90	
-    //% blockGap=7
-    //% group="SMS"
-    export function sendSms(msg: string, number: string): number{
-      sendSms(msg,number)
-      return 1
-    }
 
     /**
     * Receive Text message
