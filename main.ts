@@ -28,17 +28,17 @@ namespace GSM {
     */
     //% blockId=gsm_send_sms
     //% block="send message %msg| to %number"  
-    //% weight=90	
+    //% weight=90
     //% blockGap=7
     //% group="SMS1"
     export function sendSms(msg: string, number: string): number{
       sendSms(msg,number)
-      return 1
+      return 2
     }
 
     //% blockId=gsm_receive_sms
     //% block="receive message from %number"  
-    //% weight=85	
+    //% weight=85
     //% blockGap=7
     //% group="SMS2"
     export function receiveSms(number: string): number{
