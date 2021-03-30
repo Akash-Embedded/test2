@@ -8,8 +8,9 @@
     },
     "files": [
         "README.md",
-        "gatorlight.ts",
-        "gatorlight.cpp",
+        "main.ts",
+        "sim900.cpp",
+        "sim900.h",
         "shims.d.ts",
         "enums.d.ts"
     ],
