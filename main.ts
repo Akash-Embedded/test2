@@ -36,9 +36,6 @@ namespace GSM {
       return 1
     }
 
-    /**
-    * Receive Text message
-    */
     //% blockId=gsm_receive_sms
     //% block="receive message from %number"  
     //% weight=85	
