@@ -40,7 +40,7 @@ namespace GSM {
     //% block="receive message from %number"  
     //% weight=85	
     //% blockGap=7
-    //% group="SMS"
+    //% group="SMS2"
     export function receiveSms(number: string): number{
       //sendSms(msg,number)
       return 1
