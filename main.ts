@@ -42,11 +42,11 @@ namespace GSM {
     //%blockId=gsm_receive_sms
     //% block="receive message from %number"  
     //% weight=80	
-    //% blockGap=7
+    //% blockGap=6
     //% group="SMS"
-    export function receiveSms(number: string): string{
+    export function receiveSms(number: string): void{
       //sendSms(msg,number)
-      return "Hello"
+      //return "Hello"
     }
 
 
