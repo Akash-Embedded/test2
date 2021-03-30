@@ -30,20 +30,10 @@ namespace GSM {
     //% block="send message %msg| to %number"  
     //% weight=90
     //% blockGap=7
-    //% group="SMS4"
+    //% group="SMS5"
     export function sendSms(msg: string, number: string): number{
       sendSms(msg,number)
       return 2
-    }
-
-    //% blockId=gsm_receive_sms
-    //% block="receive message from %number"  
-    //% weight=85
-    //% blockGap=7
-    //% group="SMS2"
-    export function receiveSms(number: string): number{
-      //sendSms(msg,number)
-      return 1
     }
 
     // -------------- 2. Settings ----------------
