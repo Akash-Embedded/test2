@@ -36,6 +36,20 @@ namespace GSM {
       return 1
     }
 
+    /**
+    * Receive Text message
+    */
+    //%blockId=gsm_receive_sms
+    //% block="receive message from %number"  
+    //% weight=80	
+    //% blockGap=7
+    //% group="SMS"
+    export function receiveSms(number: string): string{
+      //sendSms(msg,number)
+      return "Hello"
+    }
+
+
     // -------------- 2. Settings ----------------
     /**
      * Connect DFPlayer Mini
@@ -43,7 +57,7 @@ namespace GSM {
      * @param pinTX TX Pin, eg: SerialPin.P1
      */
     //% blockId=gsm_set_port
-    //% block="connect to DFPlayer mini, RX:%pinRX|TX:%pinTX"   
+    //% block="connect to GSM SIM900A, RX:%pinRX|TX:%pinTX"   
     //% weight=80	
     //% blockGap=7
     //% group="SETTINGS"
