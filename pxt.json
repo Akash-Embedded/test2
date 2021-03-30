@@ -1,6 +1,6 @@
 {
     "name": "gatorlight",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "description": "SparkFun gator:light Temperature Sensor",
     "license": "MIT",
     "dependencies": {
