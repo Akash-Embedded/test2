@@ -30,7 +30,7 @@ namespace GSM {
     //% block="send message %msg| to %number"  
     //% weight=90
     //% blockGap=7
-    //% group="SMS6"
+    //% group="SMS"
     export function sendSms(msg: string, number: string): number{
       sendSms(msg,number)
       return 2
@@ -40,14 +40,25 @@ namespace GSM {
     * Recieve message
     */
     //% blockId=gsm_recieve_sms
-    //% block="recieve_sms from number %number"  
+    //% block="recieve sms from number %number"  
     //% weight=80
     //% blockGap=7
-    //% group="SMS6"
+    //% group="SMS"
     export function recieveSms(number: string): number{
       return 3
     }
 
+    /**
+    * Recieve message any
+    */
+    //% blockId=gsm_recieve_sms_any
+    //% block="recieve sms from any number"  
+    //% weight=70
+    //% blockGap=7
+    //% group="SMS"
+    export function recieveSmsAny(number: string): number{
+      return 4
+    }
     // -------------- 2. Settings ----------------
     /**
      * Connect DFPlayer Mini
