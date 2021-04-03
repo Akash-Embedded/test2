@@ -32,7 +32,7 @@ namespace GSM {
     //% blockGap=7
     //% group="SMS1"
     export function sendSms(msg: string, number: string): number{
-      sendSms(msg,number)
+      GSM.SIM900SendSms(msg,number)
       return 2
     }
 
@@ -44,7 +44,9 @@ namespace GSM {
     //% weight=80
     //% blockGap=7
     //% group="SMS1"
-    export function recieveSms(number: string): number{
+    export function recieveSms(phNumber: string): number{
+      let rcvMsg: string;
+      GSM.SIM900RecieveSms(rcvMsg, phNumber)
       return 3
     }
 
@@ -71,7 +73,7 @@ namespace GSM {
     //% blockGap=7
     //% group="SETTINGS"
     export function connect(pinRX: SerialPin = SerialPin.P0, pinTX: SerialPin = SerialPin.P1): void {
-        //serial.redirect(pinRX, pinTX, BaudRate.BaudRate9600)
+        serial.redirect(pinRX, pinTX, BaudRate.BaudRate9600)
         //isConnected = true
         //basic.pause(100)
     }

@@ -8,9 +8,8 @@
     },
     "files": [
         "README.md",
-        "main.ts",
         "sim900.cpp",
-        "sim900.h",
+        "main.ts",
         "shims.d.ts",
         "enums.d.ts"
     ],
