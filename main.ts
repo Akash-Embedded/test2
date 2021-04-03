@@ -75,6 +75,6 @@ namespace GSM {
     export function connect(pinRX: SerialPin = SerialPin.P0, pinTX: SerialPin = SerialPin.P1): void {
         serial.redirect(pinRX, pinTX, BaudRate.BaudRate9600)
         //isConnected = true
-        //basic.pause(100)
+        basic.pause(200)
     }
 }
