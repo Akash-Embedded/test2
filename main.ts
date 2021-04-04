@@ -44,10 +44,8 @@ namespace GSM {
     //% weight=80
     //% blockGap=7
     //% group="SMS1"
-    export function recieveSms(phNumber: string): number{
-      let rcvMsg: string;
-      GSM.SIM900RecieveSms(rcvMsg, phNumber)
-      return 3
+    export function recieveSms(phNumber: string): string{
+      return (GSM.SIM900RecieveSms(phNumber))
     }
 
     /**

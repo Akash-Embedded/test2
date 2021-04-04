@@ -7,7 +7,8 @@ using namespace pxt;
 namespace GSM {
 uint8_t checkResponseMsgStart();
 uint8_t checkResponseDk();
-
+uint8_t checkRecievedMsg(uint8_t *buffer);
+uint8_t response[100];
 /**
 * Initialize MU.
 */
@@ -79,11 +80,65 @@ return 1;
 /**
 * Initialize MU.
 */
-//% blockId=GSM_SIM900RecieveSms block="message %rcvMsg | number %number"
+//% blockId=GSM_SIM900RecieveSms block= Recieved message from number %number"
 //% group="SMS1"
-void SIM900RecieveSms(String rcvMsg, String number)
+String SIM900RecieveSms(String number)
 {
+	String s = mkString("Error",-1);
+	if(uBit.serial.setRxBufferSize(100) != MICROBIT_OK)
+		return s;
+	if(uBit.serial.setTxBufferSize(100) != MICROBIT_OK)
+			return s;
+	uBit.serial.send((uint8_t *)"AT\r",3);
+	uBit.sleep(1000);
+	if(checkResponseDk() == 0)
+		return s;
 
+	uBit.serial.send((uint8_t *)"AT+CMGF=1\r",10);
+	uBit.sleep(1000);
+	if(checkResponseDk() == 0)
+		return s;
+
+	uBit.serial.send((uint8_t *)"AT+CNMI=1,2,0,0,0\r",18);
+	uBit.sleep(1000);
+	if(checkResponseDk() == 0)
+		return s;
+
+	bool recieved = false;
+	uint8_t recMsg[99];
+	while(recieved != true)
+	{
+		if(checkRecievedMsg(recMsg) == 1)
+		{
+			return (mkString((const char *)&recMsg[0],-1));
+		}
+		recieved = true;
+	}
 }
 
+uint8_t checkRecievedMsg(uint8_t *buffer)
+{
+	const int len = uBit.serial.read(&response[0], 99,  MicroBitSerialMode::ASYNC);
+	if(len == 0)
+		return 0;
+	else
+	{
+		response[len] = 0;
+		for(uint8_t lc = 0; lc < len; lc++)
+		{
+			if(response[lc] == 'C'  && response[lc+1] == 'M' && response[lc+2] == 'T' && response[lc+3] == ':')
+			{
+				for(uint8_t lc2 = lc+4; lc2 < len; lc2++)
+				{
+					if(response[lc2] == 0x0D  && response[lc2+1] == 0x0A)
+					{
+						strncpy((char *)buffer, (const char *)&response[lc2+2], len-lc-4);
+						return 1;
+					}
+				}
+			}
+		}
+		return 0;
+	}
+}
 }
