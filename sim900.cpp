@@ -30,13 +30,13 @@ if(checkResponseDk() == 0)
 	return 1;
 
 uBit.serial.send((uint8_t *)"AT+CMGS=\"",9);
-uBit.serial.send((uint8_t *)number, number->getLength());
+uBit.serial.send((uint8_t *)number->getUTF8Data(), number->getLength());
 uBit.serial.send((uint8_t *)"\"\r",2);
 
 uBit.sleep(2000);
 if(checkResponseMsgStart() == 0)
 	return 2;
-uBit.serial.send((uint8_t *)msg, msg->getLength());
+uBit.serial.send((uint8_t *)msg->getUTF8Data(), msg->getLength());
 uBit.serial.sendChar(26);
 uBit.sleep(3000);
 if(checkResponseDk() == 0)
