@@ -84,7 +84,7 @@ return 1;
 //% group="SMS1"
 String SIM900RecieveSms(String number)
 {
-	String s = mkString("Error",-1);
+	String s = mkString("Error1",-1);
 	if(uBit.serial.setRxBufferSize(100) != MICROBIT_OK)
 		return s;
 	if(uBit.serial.setTxBufferSize(100) != MICROBIT_OK)
