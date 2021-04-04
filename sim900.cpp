@@ -111,8 +111,8 @@ String SIM900RecieveSms(String number)
 		if(checkRecievedMsg(recMsg) == 1)
 		{
 			return (mkString((const char *)&recMsg[0],-1));
+			recieved = true;
 		}
-		recieved = true;
 	}
 }
 
