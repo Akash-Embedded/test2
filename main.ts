@@ -5,22 +5,8 @@
 * Written in Microsoft Makecode
 */
 
-
-/**
- * Functions to operate the gatorlight sensor
- */
-
- enum gatorlightType{
-	 Lux=1,
-	 adcVal=2,
- }
-
-
-
 //% color=#f44242 icon="\uf185"
 namespace GSM {
-
-    // Functions for reading light from the gatorlight in lux or straight adv value
 
     // -------------- 1. SMS ----------------
     /**

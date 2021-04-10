@@ -12,7 +12,7 @@ uint8_t response[100];
 /**
 * Initialize MU.
 */
-//% blockId=GSM_SIM900SendSms block="message %msg | number %number"
+//% blockId=GSM_SIM900SendSms block="send message %msg| to %number"
 //% group="SMS1"
 int SIM900SendSms(String msg, String number)
 {

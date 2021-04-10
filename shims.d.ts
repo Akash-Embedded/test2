@@ -9,7 +9,7 @@ declare namespace GSM {
     /**
      * Initialize MU.
      */
-    //% blockId=GSM_SIM900SendSms block="message %msg | number %number"
+    //% blockId=GSM_SIM900SendSms block="send message %msg| to %number"
     //% group="SMS1" shim=GSM::SIM900SendSms
     function SIM900SendSms(msg: string, number: string): int32;
 
