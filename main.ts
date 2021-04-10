@@ -16,7 +16,7 @@ namespace GSM {
     //% block="send message %msg| to %number"  
     //% weight=90
     //% blockGap=7
-    //% group="SMS1"
+    //% group="SMS"
     export function sendSms(msg: string, number: string): number{
       return(GSM.SIM900SendSms(msg,number))
     }
@@ -28,7 +28,7 @@ namespace GSM {
     //% block="recieve sms from number %number"  
     //% weight=80
     //% blockGap=7
-    //% group="SMS1"
+    //% group="SMS"
     export function recieveSms(phNumber: string): string{
       return (GSM.SIM900RecieveSms(phNumber))
     }
@@ -40,7 +40,7 @@ namespace GSM {
     //% block="recieve sms from any number"  
     //% weight=70
     //% blockGap=7
-    //% group="SMS1"
+    //% group="SMS"
     export function recieveSmsAny(): string{
     let s: string = "0"
       return (GSM.SIM900RecieveSms(s))

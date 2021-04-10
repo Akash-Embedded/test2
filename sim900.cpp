@@ -13,7 +13,7 @@ uint8_t response[100];
 * Initialize MU.
 */
 //% blockId=GSM_SIM900SendSms block="send message %msg| to %number"
-//% group="SMS1"
+//% group="SMS"
 int SIM900SendSms(String msg, String number)
 {
 if(uBit.serial.setRxBufferSize(100) != MICROBIT_OK)
@@ -81,10 +81,10 @@ return 1;
 * Initialize MU.
 */
 //% blockId=GSM_SIM900RecieveSms block= Recieved message from number %number"
-//% group="SMS1"
+//% group="SMS"
 String SIM900RecieveSms(String number)
 {
-	String s = mkString("Error1",-1);
+	String s = mkString("Error",-1);
 	if(uBit.serial.setRxBufferSize(100) != MICROBIT_OK)
 		return s;
 	if(uBit.serial.setTxBufferSize(100) != MICROBIT_OK)
