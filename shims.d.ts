@@ -16,7 +16,7 @@ declare namespace GSM {
     /**
      * Initialize MU.
      */
-    //% blockId=GSM_SIM900RecieveSms block= Recieved message from number %number"
+    //% blockId=GSM_SIM900RecieveSms block= Receive message from number %number"
     //% group="SMS" shim=GSM::SIM900RecieveSms
     function SIM900RecieveSms(number: string): string;
 }

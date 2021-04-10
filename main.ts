@@ -22,14 +22,14 @@ namespace GSM {
     }
 
     /**
-    * Recieve message
+    * Receive message
     */
-    //% blockId=gsm_recieve_sms
-    //% block="recieve sms from number %number"  
+    //% blockId=gsm_receive_sms
+    //% block="receive sms from number %number"  
     //% weight=80
     //% blockGap=7
     //% group="SMS"
-    export function recieveSms(phNumber: string): string{
+    export function receiveSms(phNumber: string): string{
       return (GSM.SIM900RecieveSms(phNumber))
     }
 
@@ -61,4 +61,41 @@ namespace GSM {
         //isConnected = true
         basic.pause(200)
     }
+    
+    // -------------- 3. TCP ----------------
+    /**
+    * connect to TCP server
+    */
+    //% blockId=gsm_connect_server
+    //% block="connect to TCP server IP: %ip| port %port"  
+    //% weight=90
+    //% blockGap=7
+    //% group="TCP"
+    export function connectServer(ip: string, port: string): number{
+      return(1)
+    }
+    
+    /**
+    * send data to TCP server
+    */
+    //% blockId=gsm_send_server
+    //% block="send data %msg"  
+    //% weight=90
+    //% blockGap=7
+    //% group="TCP"
+    export function sendServer(msg: string): number{
+      return(1)
+    }
+
+    /**
+    * receive data from TCP server
+    */
+    //% blockId=gsm_receive_server
+    //% block="receive data"  
+    //% weight=90
+    //% blockGap=7
+    //% group="TCP"
+    export function receiveServer(): number{
+      return(1)
+    }    
 }

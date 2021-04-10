@@ -80,11 +80,11 @@ return 1;
 /**
 * Initialize MU.
 */
-//% blockId=GSM_SIM900RecieveSms block= Recieved message from number %number"
+//% blockId=GSM_SIM900RecieveSms block= Receive message from number %number"
 //% group="SMS"
 String SIM900RecieveSms(String number)
 {
-	String s = mkString("Error",-1);
+	String s = mkString("Error!",-1);
 	if(uBit.serial.setRxBufferSize(100) != MICROBIT_OK)
 		return s;
 	if(uBit.serial.setTxBufferSize(100) != MICROBIT_OK)
