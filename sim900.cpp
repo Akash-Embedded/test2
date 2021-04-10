@@ -118,27 +118,58 @@ String SIM900RecieveSms(String number)
 
 uint8_t checkRecievedMsg(uint8_t *buffer)
 {
-	const int len = uBit.serial.read(&response[0], 99,  MicroBitSerialMode::ASYNC);
+	char number[20];
+	uint8_t len = 0;
+	const int len1 = uBit.serial.read(&response[0], 99,  MicroBitSerialMode::ASYNC);
+	if(len1 != 0)
+	{
+		uBit.sleep(100);
+		const uint8_t len2 = uBit.serial.read(&response[len1], 99-len1,  MicroBitSerialMode::ASYNC);
+		len = len1 + len2;
+	}
 	if(len == 0)
 		return 0;
 	else
 	{
-		response[len] = 0;
+		response[len] = NULL;
+		char *pmsg = NULL;
+		bool smsRecieved = false;
 		for(uint8_t lc = 0; lc < len; lc++)
 		{
 			if(response[lc] == 'C'  && response[lc+1] == 'M' && response[lc+2] == 'T' && response[lc+3] == ':')
 			{
-				for(uint8_t lc2 = lc+4; lc2 < len; lc2++)
+				pmsg = (char *)&response[lc+4];
+
+				char *pmsgStart = strstr((char*)&response[lc+4], "\r\n");
+
+				if(pmsgStart != NULL)
 				{
-					if(response[lc2] == 0x0D  && response[lc2+1] == 0x0A)
+					pmsgStart += 2;
+					char *pmsgEnd = strstr(pmsgStart, "\r\n");
+					if(*pmsgEnd != NULL)
 					{
-						strncpy((char *)buffer, (const char *)&response[lc2+2], len-lc-4);
-						return 1;
+						strncpy((char *)buffer,pmsgStart,pmsgEnd-pmsgStart);
+						buffer[pmsgEnd-pmsgStart] = NULL;
+						smsRecieved = true;
 					}
 				}
+
+				char *pnumberStart = strstr((char*)&response[lc+4], "\"");
+
+				if(pnumberStart != NULL)
+				{
+					pnumberStart += 1;
+					char *pnumberEnd = strstr(pnumberStart, "\"");
+					if(*pnumberEnd != NULL)
+					{
+						strncpy((char *)number,pnumberStart,pnumberEnd-pnumberStart);
+						number[pnumberEnd-pnumberStart] = NULL;
+					}
+				}
+				break;
 			}
 		}
-		return 0;
+		return(smsRecieved);
 	}
 }
 }
